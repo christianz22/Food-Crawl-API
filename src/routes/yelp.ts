@@ -21,4 +21,19 @@ routes.get("/", (req, res) => {
     });
 });
 
+routes.get("/:id", (req, res) => {
+  axios
+    .get(`https://api.yelp.com/v3/businesses/${req.params.id}`, {
+
+      headers: {Authorization: `Bearer ${yelpApiKey}`},
+    })
+    .then((response: any) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500);
+      res.json(error.message);
+    });
+});
+
 export default routes;
