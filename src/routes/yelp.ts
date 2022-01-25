@@ -9,11 +9,26 @@ const yelpApiKey : string = process.env.YELP_API_KEY || '';
 routes.get("/", (req, res) => {
   axios
     .get(`https://api.yelp.com/v3/businesses/search`, {
-      params: { term: req.query?.term || '', location: 'New York City' },
+      params: { term: req.query?.term || '', location: req.query?.location },
       headers: {Authorization: `Bearer ${yelpApiKey}`},
     })
     .then((response: any) => {
       res.json(response.data.businesses);
+    })
+    .catch((error) => {
+      res.status(500);
+      res.json(error.message);
+    });
+});
+
+routes.get("/:id", (req, res) => {
+  axios
+    .get(`https://api.yelp.com/v3/businesses/${req.params.id}`, {
+
+      headers: {Authorization: `Bearer ${yelpApiKey}`},
+    })
+    .then((response: any) => {
+      res.json(response.data);
     })
     .catch((error) => {
       res.status(500);
