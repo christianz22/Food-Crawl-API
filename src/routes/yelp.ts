@@ -9,7 +9,7 @@ const yelpApiKey : string = process.env.YELP_API_KEY || '';
 routes.get("/", (req, res) => {
   axios
     .get(`https://api.yelp.com/v3/businesses/search`, {
-      params: { term: req.query?.term || '', location: 'New York City' },
+      params: { term: req.query?.term || '', location: req.query?.location || '' },
       headers: {Authorization: `Bearer ${yelpApiKey}`},
     })
     .then((response: any) => {
