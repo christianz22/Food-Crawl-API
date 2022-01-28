@@ -2,7 +2,11 @@
 import 'dotenv/config';
 import express from 'express';
 import Yelp from './routes/yelp';
+import BucketList from './routes/bucketlist'
+import Favorites from './routes/favorites'
+import Reviews from './routes/reviews'
 import 'dotenv/config';
+import * as functions from "firebase-functions";
 
 
 // require the cors module
@@ -17,8 +21,12 @@ app.use(cors())
 // allow POST and PUT requests to use JSON bodies
 app.use(express.json())
 app.use("/yelp",Yelp);
+app.use("/bucketlist", BucketList );
+app.use("/favorites", Favorites );
+app.use("/reviews", Reviews );
 // define the port
 const port = 5000;
  
 // run the server
-app.listen(port, () => console.log(`Listening on port: ${port}.`));
+// app.listen(port, () => console.log(`Listening on port: ${port}.`));
+export const api = functions.https.onRequest(app);
