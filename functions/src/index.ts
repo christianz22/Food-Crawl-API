@@ -28,5 +28,5 @@ app.use("/reviews", Reviews );
 const port = 5000;
  
 // run the server
-// app.listen(port, () => console.log(`Listening on port: ${port}.`));
+app.listen(port, () => console.log(`Listening on port: ${port}.`));
 export const api = functions.https.onRequest(app);
