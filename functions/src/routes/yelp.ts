@@ -7,6 +7,7 @@ const routes = express.Router();
 const yelpApiKey : string = process.env.YELP_API_KEY || '';
 
 routes.get("/", (req, res) => {
+  console.log(yelpApiKey)
   axios
     .get(`https://api.yelp.com/v3/businesses/search`, {
       params: { term: req.query?.term || '', location: req.query?.location || '' },

@@ -5,7 +5,6 @@ import Yelp from './routes/yelp';
 import BucketList from './routes/bucketlist'
 import Favorites from './routes/favorites'
 import Reviews from './routes/reviews'
-import 'dotenv/config';
 import * as functions from "firebase-functions";
 
 
@@ -25,8 +24,8 @@ app.use("/bucketlist", BucketList );
 app.use("/favorites", Favorites );
 app.use("/reviews", Reviews );
 // define the port
-const port = 5000;
+// const port = 5000;
  
 // run the server
-app.listen(port, () => console.log(`Listening on port: ${port}.`));
+// app.listen(port, () => console.log(`Listening on port: ${port}.`));
 export const api = functions.https.onRequest(app);
