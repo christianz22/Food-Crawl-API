@@ -1,0 +1,5 @@
+{
+    "mongodb": {
+        "uri": "mongodb+srv://jasonsmoore:82gUEjJJzOBG9C7b@cluster0.lqpng.mongodb.net/test?authSource=admin&replicaSet=atlas-s45roa-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+    }
+}
