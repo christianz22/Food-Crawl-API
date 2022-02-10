@@ -1,12 +1,12 @@
 // require the express module
 import express from "express";
-import axios from "axios";
+import axios from 'axios';
 import * as functions from 'firebase-functions';
 
 // create a new Router object
 const routes = express.Router();
-const yelpApiKey: string = functions.config().yelp.apikey;
 
+const yelpApiKey: string = functions.config().yelp.apikey;
 
 routes.get("/", (req, res) => {
   console.log(yelpApiKey)

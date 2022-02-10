@@ -12,7 +12,7 @@ routes.post("/", async (req, res) => {
 
   const results = await client.db().collection("reviews").insertOne({
     user: newReviews.user,
-    restaurant: newReviews.restaurant,
+    restaurant: newReviews.restaurantId,
     title: newReviews.title,
     review: newReviews.review
   });
@@ -41,5 +41,23 @@ routes.get("/:user", async (req, res) => {
   res.json(results);
 });
 
+routes.get("/", async (req, res) => {
+  const client = await getClient();
+  const {restaurantId} = req.query
+  // db.bucketlist.find({user: 'BJ' })
+  if(restaurantId){
+    const results = await client
+    .db()
+    .collection("reviews")
+    .find({
+      restaurant: restaurantId,
+    })
+    .toArray();
+
+    res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+
+  res.json(results);
+  }
+});
 
 export default routes;
