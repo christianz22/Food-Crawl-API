@@ -36,7 +36,7 @@ routes.get("/:user", async (req, res) => {
     })
     .toArray();
 
-    res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+   
 
   res.json(results);
   } else {
@@ -48,7 +48,7 @@ routes.get("/:user", async (req, res) => {
     })
     .toArray();
 
-    res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+   
 
   res.json(results);
   }

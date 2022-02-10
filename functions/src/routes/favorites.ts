@@ -10,10 +10,7 @@ routes.post("/", async (req, res) => {
 
   const client = await getClient();
 
-  const results = await client.db().collection("favortites").insertOne({
-    user: newFavorites.user,
-    restaurant: newFavorites.restaurant,
-  });
+  const results = await client.db().collection("favorites").insertOne(newFavorites);
 
   res.json(results);
 });
@@ -34,7 +31,7 @@ routes.get("/:user", async (req, res) => {
     })
     .toArray();
 
-    res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+   
 
   res.json(results);
 });
