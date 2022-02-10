@@ -1,9 +1,0 @@
-{
-    "mongodb": {
-        "uri": "mongodb+srv://jasonsmoore:82gUEjJJzOBG9C7b@cluster0.lqpng.mongodb.net/food_crawl?authSource=admin&replicaSet=atlas-s45roa-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
-    },
-    "yelp": {
-        "apikey":"tOZbNz7Do6okdc8ORtTY1VsORG-LskRb7iLWb4jjl-MBJhXsTTETAuLPhXnYmvQKNdNNrBH0jhYPNWMkvTFvEWph-IrjgHIL_fQyHrODW8WlGiaB_ibA5oshefzpYXYx"
-    }
-    
-}
