@@ -26,9 +26,21 @@ routes.post("/", async (req, res) => {
 routes.get("/:user", async (req, res) => {
   const user = req.params.user;
   const client = await getClient();
+  if (req.query.restaurantId){
+    const results = await client
+    .db()
+    .collection("reviews")
+    .find({
+      user: user,
+      restaurantId: req.query.restaurantId
+    })
+    .toArray();
 
-  // db.bucketlist.find({user: 'BJ' })
-  const results = await client
+    res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+
+  res.json(results);
+  } else {
+    const results = await client
     .db()
     .collection("reviews")
     .find({
@@ -39,6 +51,9 @@ routes.get("/:user", async (req, res) => {
     res.set("Cache-Control", "public, max-age=30, s-maxage=30");
 
   res.json(results);
+  }
+  // db.bucketlist.find({user: 'BJ' })
+
 });
 
 
