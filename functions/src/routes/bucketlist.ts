@@ -10,10 +10,7 @@ routes.post("/", async (req, res) => {
 
   const client = await getClient();
 
-  const results = await client.db().collection("bucketlist").insertOne({
-    user: newBucketList.user,
-    restaurant: newBucketList.restaurant,
-  });
+  const results = await client.db().collection("bucketlist").insertOne(newBucketList);
 
   res.json(results);
 });
