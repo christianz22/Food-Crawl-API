@@ -25,7 +25,6 @@ routes.get("/:user", async (req, res) => {
   const user = req.params.user;
   const client = await getClient();
 
-  // db.bucketlist.find({user: 'BJ' })
   const results = await client
     .db()
     .collection("bucketlist")
@@ -37,6 +36,7 @@ routes.get("/:user", async (req, res) => {
     res.set("Cache-Control", "public, max-age=30, s-maxage=30");
 
   res.json(results);
+
 });
 
 
