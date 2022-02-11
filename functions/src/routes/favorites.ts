@@ -15,6 +15,17 @@ routes.post("/", async (req, res) => {
   res.json(results);
 });
 
+
+routes.delete("/:userId/:restaurantId", async (req, res) => {
+  // Delete your favoritelst items
+ 
+
+  const client = await getClient();
+
+  const results = await client.db().collection("favorites").deleteOne({user: req.params.userId, restaurantId: req.params.restaurantId });
+
+  res.json(results);
+});
 // GET /commute/:user
 // example /commute/BJ
 // Returns all of commutes for a specific user

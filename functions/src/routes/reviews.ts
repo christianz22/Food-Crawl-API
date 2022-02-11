@@ -20,6 +20,17 @@ routes.post("/", async (req, res) => {
   res.json(results);
 });
 
+// routes.delete("/:userId", async (req, res) => {
+//   // Delete your reviews 
+ 
+
+//   const client = await getClient();
+
+//   const results = await client.db().collection("reviews").deleteOne({user: req.params.userId});
+
+//   res.json(results);
+// });
+
 // GET /commute/:user
 // example /commute/BJ
 // Returns all of commutes for a specific user
